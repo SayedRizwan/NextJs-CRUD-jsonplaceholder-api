@@ -6,6 +6,7 @@ import { FiEdit, FiTrash2 } from "react-icons/fi";
 import Modal from "./Modal";
 import { useRouter } from "next/navigation";
 import { deleteTodo, editTodo } from "./apis";
+import { LiaCloneSolid } from "react-icons/lia";
 
 interface TaskProps {
   task: ITask;
@@ -71,7 +72,10 @@ const Task: React.FC<TaskProps> = ({ task }) => {
             </div>
           </form>
         </Modal>
-        <FiTrash2
+
+      </td>
+      <td>
+      <FiTrash2
           onClick={() => setOpenModalDeleted(true)}
           cursor="pointer"
           className="text-red-500"
@@ -80,6 +84,24 @@ const Task: React.FC<TaskProps> = ({ task }) => {
         <Modal modalOpen={openModalDeleted} setModalOpen={setOpenModalDeleted}>
           <h3 className="text-lg">
             Are you sure, you want to delete this user?
+          </h3>
+          <div className="modal-action">
+            <button onClick={() => handleDeleteTask(task.id)} className="btn">
+              Yes
+            </button>
+          </div>
+        </Modal>
+      </td>
+      <td>
+      <LiaCloneSolid
+          onClick={() => setOpenModalDeleted(true)}
+          cursor="pointer"
+          className="text-green-500"
+          size={25}
+        />
+        <Modal modalOpen={openModalDeleted} setModalOpen={setOpenModalDeleted}>
+          <h3 className="text-lg">
+            Are you sure, you want to clone this task?
           </h3>
           <div className="modal-action">
             <button onClick={() => handleDeleteTask(task.id)} className="btn">

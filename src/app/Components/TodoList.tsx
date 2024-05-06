@@ -1,4 +1,4 @@
-import { ITask } from "@/types/task";
+import { ITask } from "./types/task";
 import React from "react";
 import Task from "./Task";
 
@@ -13,10 +13,21 @@ const TodoList: React.FC<TodoListProps> = ({ tasks }) => {
         {/* head */}
         <thead>
           <tr>
-            <th>Users</th>
+            <th>Tasks</th>
             <th>Actions</th>
           </tr>
+        
         </thead>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Clone</th>
+          </tr>
+        
+        </thead>
+        
         <tbody>
           {tasks.map((task) => (
             <Task key={task.id} task={task} />
